@@ -40,6 +40,21 @@ const long interval = 1000 * 60;
 unsigned long previousMillis = 0;
 unsigned long counter = 0;
 
+float calcPsat(float temperature) {
+  if (temperature > 0) {
+    return 610.5 * pow(e, (17.269 * temperature / (237.3 + temperature)));
+  } else {
+    return 610.5 * pow(e, (21.875 * temperature / (265.5 + temperature)));
+  }
+}
+
+float calcAltE(float humidity, float temperature) {
+ return humidity * calcPsat(temperature);
+}
+// formular from:
+// https://www.wufi-forum.com/viewtopic.php?t=1615
+// https://enbau-online.ch/bauphysik/9-9-saettigungsdampfmenge-und-wasserdampfsaettigungsdruck/
+
 float calcE(float humidity, float temperature)  {
   if (temperature < 0) {
     return (4.689 * pow((1.486 + temperature / 100), 12.3) * humidity) / 10000;
