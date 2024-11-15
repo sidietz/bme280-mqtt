@@ -61,8 +61,10 @@ float calcE(float humidity, float temperature)  {
   } else {
     return (288.68 * pow((1.0981 + temperature / 100), 8.02) * humidity) / 100;
   }
-
 }
+// formular from:
+// https://www.projekt-baudenkmal.de/stichwoerter/w/wasserdampfsaettigungsdruck/
+// https://ueba.elkonet.de/wbt/IMPORTER/Bauphysik+Grundlagen/Feuchteschutz/Grundlagen+Feuchteschutz/Wasserdampfpartialdruck.html
 
 float guessE(float temperature) {
   if (temperature < 9.1) {
@@ -84,6 +86,8 @@ float convToSeaLevelPressure(float pressure, float temperature, float humidity) 
   float x = (g_0 / (R * ((temperature + KELVIN) + C_h * E + a * (ALTITUDE/2)))) * ALTITUDE;
   return pressure * pow(e, x);
 }
+// formular from:
+// https://www.chemie.de/lexikon/Barometrische_H%C3%B6henformel.html
 
 float convToSeaLevelPressureEstimate(float pressure, float temperature) {
   //return pressure / pow((1 - (ALTITUDE / 44330)), 5.255); // BMP180 does not work
