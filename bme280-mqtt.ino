@@ -57,9 +57,9 @@ float calcAltE(float humidity, float temperature) {
 
 float calcE(float humidity, float temperature)  {
   if (temperature < 0) {
-    return (4.689 * pow((1.486 + temperature / 100), 12.3) * humidity) / 10000;
+    return (4.689 * pow((1.486 + temperature / 100), 12.3) * humidity) / 100;
   } else {
-    return (288.68 * pow((1.0981 + temperature / 100), 8.02) * humidity) / 10000;
+    return (288.68 * pow((1.0981 + temperature / 100), 8.02) * humidity) / 100;
   }
 
 }
@@ -185,7 +185,7 @@ void loop() {
     humidity = bme.readHumidity();
     temperature = bme.readTemperature();
     pressure = bme.readPressure() / 100.0F; //convert to hPa
-    seaPressure = convToSeaLevelPressure(pressure, temperature, humidity);
+    seaPressure = convToSeaLevelPressure(pressure, temperature, humidity / 100); //conv percentage to float
     float seaPressure2 = convToSeaLevelPressureEstimate(pressure, temperature);
     
     Serial.print("Humidity: ");
