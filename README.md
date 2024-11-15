@@ -11,3 +11,6 @@ bme280-mqtt ist ein Arduino Sketch und ein kleines Python Skript. In Kombination
 
 ## Besonderes
 Zur Berechnung des Luftdrucks auf Meereshöhe wird statt der üblichen ausschließlich temperaturabhängigen Näherungsverfahren ein Präziseres verwendet, das auch die Luftfeuchtigkeit berücksichtigt. [Quelle](https://www.chemie.de/lexikon/Barometrische_H%C3%B6henformel.html)
+
+## Benutzung
+Die WLAN Zugangsdaten müssen geändert und das Passwort in der `secrets.h` eingetragen werden. Zusätzlich muss die Höhe (ALTITUDE) an die Höhe des Aufstellorts angepasst werden.
