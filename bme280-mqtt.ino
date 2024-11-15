@@ -9,7 +9,7 @@
 #include "secrets.h"
 
 #define SEALEVELPRESSURE_HPA (1013.25)
-#define ALTITUDE 405
+#define ALTITUDE 458
 #define KELVIN 273.15
 #define e 2.71828182846
 
